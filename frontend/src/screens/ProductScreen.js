@@ -10,12 +10,12 @@ import { listProductsDetails } from '../actions/productActions'
 const ProductScreen = () => {
     const { id } = useParams();
     const dispatch = useDispatch()
-    const { product, loading, error } = useSelector((state) => state.productDetails);  
+    const { product = {}, loading, error } = useSelector((state) => state.productDetails);
+    
     useEffect(() => {
         dispatch(listProductsDetails(id))
       },[dispatch, id]);
 
-    //const product = {}
 
   return (
     <>
